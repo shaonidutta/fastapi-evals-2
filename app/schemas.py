@@ -16,7 +16,7 @@ class User(UserCreate):
     updated_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class UserLogin(BaseModel):
     email: EmailStr
@@ -42,11 +42,9 @@ class Theatre(BaseModel):
     id: int
     name: str
     location: str
-    created_at: datetime
-    updated_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ScreenCreate(BaseModel):
     name: str
@@ -60,11 +58,9 @@ class Screen(BaseModel):
     id: int
     name: str
     theatre_id: int
-    created_at: datetime
-    updated_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class SeatCreate(BaseModel):
     label: str
@@ -97,10 +93,9 @@ class Movie(BaseModel):
     description: Optional[str] = None
     min_duration: int
     created_at: datetime
-    updated_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ShowCreate(BaseModel):
     movie_id: int
@@ -124,11 +119,9 @@ class Show(BaseModel):
     end_time: datetime
     price: float
     active: bool
-    created_at: datetime
-    updated_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class BookingCreate(BaseModel):
     show_id: int
@@ -148,7 +141,7 @@ class Booking(BaseModel):
     cancelled: bool
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class BookedSeat(BaseModel):
     id: int
@@ -158,5 +151,5 @@ class BookedSeat(BaseModel):
 
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
